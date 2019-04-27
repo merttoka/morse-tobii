@@ -1,0 +1,16 @@
+C:\Users\MAT_X\Documents\Visual Studio 2017\Projects\MorseCodeX\MorseCodeX\bin\Debug\Tobii.EyeX.Client.dll
+C:\Users\MAT_X\Documents\Visual Studio 2017\Projects\MorseCodeX\MorseCodeX\bin\Debug\AnyCPU\Tobii.EyeX.Client.dll
+C:\Users\MAT_X\Documents\Visual Studio 2017\Projects\MorseCodeX\MorseCodeX\bin\Debug\tobii_stream_engine.dll
+C:\Users\MAT_X\Documents\Visual Studio 2017\Projects\MorseCodeX\MorseCodeX\bin\Debug\tobii_firmware_upgrade.dll
+C:\Users\MAT_X\Documents\Visual Studio 2017\Projects\MorseCodeX\MorseCodeX\bin\Debug\tobii_pro.dll
+C:\Users\MAT_X\Documents\Visual Studio 2017\Projects\MorseCodeX\MorseCodeX\bin\Debug\MorseCodeX.exe.config
+C:\Users\MAT_X\Documents\Visual Studio 2017\Projects\MorseCodeX\MorseCodeX\bin\Debug\MorseCodeX.exe
+C:\Users\MAT_X\Documents\Visual Studio 2017\Projects\MorseCodeX\MorseCodeX\bin\Debug\MorseCodeX.pdb
+C:\Users\MAT_X\Documents\Visual Studio 2017\Projects\MorseCodeX\MorseCodeX\bin\Debug\Tobii.EyeX.Client.Net20.dll
+C:\Users\MAT_X\Documents\Visual Studio 2017\Projects\MorseCodeX\MorseCodeX\bin\Debug\Tobii.Interaction.Model.dll
+C:\Users\MAT_X\Documents\Visual Studio 2017\Projects\MorseCodeX\MorseCodeX\bin\Debug\Tobii.Interaction.Net.dll
+C:\Users\MAT_X\Documents\Visual Studio 2017\Projects\MorseCodeX\MorseCodeX\bin\Debug\Tobii.Research.dll
+C:\Users\MAT_X\Documents\Visual Studio 2017\Projects\MorseCodeX\MorseCodeX\bin\Debug\Tobii.Research.xml
+C:\Users\MAT_X\Documents\Visual Studio 2017\Projects\MorseCodeX\MorseCodeX\obj\Debug\MorseCodeX.exe
+C:\Users\MAT_X\Documents\Visual Studio 2017\Projects\MorseCodeX\MorseCodeX\obj\Debug\MorseCodeX.pdb
+C:\Users\MAT_X\Documents\Visual Studio 2017\Projects\MorseCodeX\MorseCodeX\obj\Debug\MorseCodeX.csprojResolveAssemblyReference.cache
