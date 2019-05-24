@@ -28,9 +28,9 @@ namespace MorseCodeX
         private static bool userPresense = true;
 
         // rythm parameters
-        private static float dot = 1000.0f;     // time unit (ms)
+        private static float dot = 1000.0f;      // time unit (ms)
         private static float c = 0.75f;          // scaling
-        private static float EP = 50f;          // epsilon (ms)
+        private static float EP = 50f;           // epsilon (ms)
 
         // dictionary
         private static Dictionary<String, String> alphabet = new Dictionary<String, String>()
@@ -52,7 +52,7 @@ namespace MorseCodeX
             if (alphabet.ContainsKey(morse))
                 return alphabet[morse];
             else
-                return "#";
+                return "[?]";
         }
 
         static void Spaces(int counter) {
@@ -60,28 +60,30 @@ namespace MorseCodeX
             if (counter >= 7)
             {
                 currentWordDecoded += GetLetter(currentLetterEncoded);
-                Console.WriteLine($" {{{counter} [E.W.] || {currentWordDecoded}}}\n____________________________\n\n");
+                Console.WriteLine($" {{{counter} [EoW] || Decoded = '{currentWordDecoded}'}}\n____________________________\n\n");
                 currentLetterEncoded = "";
                 currentWordDecoded = "";
             }
             else if (counter >= 3)
             {
                 currentWordDecoded += GetLetter(currentLetterEncoded);
-                Console.WriteLine($" {{{counter} [E.L.] || {currentWordDecoded}}}\n");
+                Console.WriteLine($" {{{counter} [EoL] || Decoded = '{currentWordDecoded}'}}\n");
                 currentLetterEncoded = "";
             }
             else if (counter >= 1)
             {
-                Console.Write(" ");
+                Console.Write("");
             }
         }
 
         static void Main(string[] args)
         {
+            Console.WriteLine("Press 'Esc' to exit...\n");
+            Console.WriteLine($"Eye tracking started. Blink to start.\n - Unit time:\t{c * dot / 1000}s\n - Bpm:\t\t{60000 / (c * dot)}\n - Offset:\t{EP / 1000.0}s\n===========================\n");
+            
+            // initialize the device
             tobiiHost = new Host();
-
-            Console.WriteLine($"Eye tracking started. Blink to start.\n - Unit time:\t{c*dot/1000}s\n - Bpm:\t\t{60000/(c*dot)}\n - Offset:\t{EP/1000.0}s\n===========================\n");
-
+            
             var userPresenseObserver = tobiiHost.States.CreateUserPresenceObserver();
             var gazePointDataStream = tobiiHost.Streams.CreateGazePointDataStream();
 
@@ -172,9 +174,27 @@ namespace MorseCodeX
                 }
             });
 
-            Console.ReadKey();
+            // eval loop
+            ConsoleKeyInfo keyPress;
+            do
+            {
+                keyPress = Console.ReadKey(true);
+                if (keyPress.Key == ConsoleKey.Backspace) {
+                    //reset parameters
+                    lastGazeTimestamp = 0;
+                    lastDotTimestamp = 0;
+                    lastSpaceTimestamp = 0;
+                    readyForNewSymbol = true;
+                    spaceCounter = 0;
+                    // delete the token 
+                    if (currentLetterEncoded.Length >= 1) {
+                        currentLetterEncoded = currentLetterEncoded.Substring(0, currentLetterEncoded.Length - 1);
+                        Console.Write("\b");
+                    }
+                }
+            } while (keyPress.Key != ConsoleKey.Escape);
 
-            // we will close the coonection to the Tobii Engine before exit.
+            // we will close the connection to the Tobii Engine before exiting
             tobiiHost.DisableConnection();
         }
     }
